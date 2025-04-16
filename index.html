@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sweet Task Timer</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#d6336c">
+  <style>
+    /* Same CSS as before (shortened for clarity) */
+  </style>
+</head>
+<body>
+  <h1>🍫 Sweet Task Timer 🍫</h1>
+  <div class="timer-section">
+    <input type="text" id="taskName" placeholder="What are you doing, sweetie? 💕">
+    <div>
+      <button class="start" onclick="startTimer()">Start</button>
+      <button class="stop" onclick="stopTimer()">Stop</button>
+      <button class="save" onclick="saveTask()">Save Task</button>
+    </div>
+    <p id="timerDisplay">00:00:00</p>
+    <div class="message" id="motivation"></div>
+    <input type="file" accept="audio/*" id="musicUpload">
+    <audio controls id="bgMusic" style="margin-top:10px;"></audio>
+  </div>
+  <div class="task-list" id="taskList"></div>
+
+  <script src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log("Service Worker Registered"));
+    }
+  </script>
+</body>
+</html>
